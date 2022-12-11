@@ -19,10 +19,22 @@
 		E89B9D04293E124400AF42C8 /* CUK_Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B9CFF293E124300AF42C8 /* CUK_Client.swift */; };
 		E89B9D05293E124400AF42C8 /* CallbackURLKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B9D00293E124300AF42C8 /* CallbackURLKit.swift */; };
 		E89B9D07293E129000AF42C8 /* WristcamCUK_Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B9D06293E129000AF42C8 /* WristcamCUK_Client.swift */; };
+		E8F8D43C29461FC20084D44D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B9CEB293E118100AF42C8 /* ViewController.swift */; };
+		E8F8D43D29461FC20084D44D /* CUK_Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B9CFC293E124300AF42C8 /* CUK_Manager.swift */; };
+		E8F8D43E29461FC20084D44D /* WristcamCUK_Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B9D06293E129000AF42C8 /* WristcamCUK_Client.swift */; };
+		E8F8D43F29461FC20084D44D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B9CE7293E118100AF42C8 /* AppDelegate.swift */; };
+		E8F8D44029461FC20084D44D /* CUK_Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B9CFF293E124300AF42C8 /* CUK_Client.swift */; };
+		E8F8D44129461FC20084D44D /* CUK_Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B9CFD293E124300AF42C8 /* CUK_Request.swift */; };
+		E8F8D44229461FC20084D44D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B9CE9293E118100AF42C8 /* SceneDelegate.swift */; };
+		E8F8D44329461FC20084D44D /* CUK_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B9CFE293E124300AF42C8 /* CUK_Extensions.swift */; };
+		E8F8D44429461FC20084D44D /* CallbackURLKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89B9D00293E124300AF42C8 /* CallbackURLKit.swift */; };
+		E8F8D44729461FC20084D44D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E89B9CF2293E118400AF42C8 /* LaunchScreen.storyboard */; };
+		E8F8D44829461FC20084D44D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E89B9CF0293E118400AF42C8 /* Assets.xcassets */; };
+		E8F8D44929461FC20084D44D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E89B9CED293E118100AF42C8 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E89B9CE4293E118100AF42C8 /* WristcamPartnerSampleCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WristcamPartnerSampleCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E89B9CE4293E118100AF42C8 /* WCPartnerConsumer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WCPartnerConsumer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E89B9CE7293E118100AF42C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E89B9CE9293E118100AF42C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E89B9CEB293E118100AF42C8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,10 +48,18 @@
 		E89B9CFF293E124300AF42C8 /* CUK_Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CUK_Client.swift; sourceTree = "<group>"; };
 		E89B9D00293E124300AF42C8 /* CallbackURLKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallbackURLKit.swift; sourceTree = "<group>"; };
 		E89B9D06293E129000AF42C8 /* WristcamCUK_Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WristcamCUK_Client.swift; sourceTree = "<group>"; };
+		E8F8D44D29461FC20084D44D /* WCPartnerProvider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WCPartnerProvider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		E89B9CE1293E118100AF42C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E8F8D44529461FC20084D44D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -60,7 +80,8 @@
 		E89B9CE5293E118100AF42C8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E89B9CE4293E118100AF42C8 /* WristcamPartnerSampleCode.app */,
+				E89B9CE4293E118100AF42C8 /* WCPartnerConsumer.app */,
+				E8F8D44D29461FC20084D44D /* WCPartnerProvider.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -96,9 +117,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E89B9CE3293E118100AF42C8 /* WristcamPartnerSampleCode */ = {
+		E89B9CE3293E118100AF42C8 /* WCPartnerConsumer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E89B9CF8293E118400AF42C8 /* Build configuration list for PBXNativeTarget "WristcamPartnerSampleCode" */;
+			buildConfigurationList = E89B9CF8293E118400AF42C8 /* Build configuration list for PBXNativeTarget "WCPartnerConsumer" */;
 			buildPhases = (
 				E89B9CE0293E118100AF42C8 /* Sources */,
 				E89B9CE1293E118100AF42C8 /* Frameworks */,
@@ -108,9 +129,26 @@
 			);
 			dependencies = (
 			);
-			name = WristcamPartnerSampleCode;
+			name = WCPartnerConsumer;
 			productName = WristcamPartnerSample;
-			productReference = E89B9CE4293E118100AF42C8 /* WristcamPartnerSampleCode.app */;
+			productReference = E89B9CE4293E118100AF42C8 /* WCPartnerConsumer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E8F8D43A29461FC20084D44D /* WCPartnerProvider */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E8F8D44A29461FC20084D44D /* Build configuration list for PBXNativeTarget "WCPartnerProvider" */;
+			buildPhases = (
+				E8F8D43B29461FC20084D44D /* Sources */,
+				E8F8D44529461FC20084D44D /* Frameworks */,
+				E8F8D44629461FC20084D44D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WCPartnerProvider;
+			productName = WristcamPartnerSample;
+			productReference = E8F8D44D29461FC20084D44D /* WCPartnerProvider.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -141,7 +179,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E89B9CE3293E118100AF42C8 /* WristcamPartnerSampleCode */,
+				E89B9CE3293E118100AF42C8 /* WCPartnerConsumer */,
+				E8F8D43A29461FC20084D44D /* WCPartnerProvider */,
 			);
 		};
 /* End PBXProject section */
@@ -154,6 +193,16 @@
 				E89B9CF4293E118400AF42C8 /* LaunchScreen.storyboard in Resources */,
 				E89B9CF1293E118400AF42C8 /* Assets.xcassets in Resources */,
 				E89B9CEF293E118100AF42C8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E8F8D44629461FC20084D44D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E8F8D44729461FC20084D44D /* LaunchScreen.storyboard in Resources */,
+				E8F8D44829461FC20084D44D /* Assets.xcassets in Resources */,
+				E8F8D44929461FC20084D44D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +222,22 @@
 				E89B9CEA293E118100AF42C8 /* SceneDelegate.swift in Sources */,
 				E89B9D03293E124400AF42C8 /* CUK_Extensions.swift in Sources */,
 				E89B9D05293E124400AF42C8 /* CallbackURLKit.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E8F8D43B29461FC20084D44D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E8F8D43C29461FC20084D44D /* ViewController.swift in Sources */,
+				E8F8D43D29461FC20084D44D /* CUK_Manager.swift in Sources */,
+				E8F8D43E29461FC20084D44D /* WristcamCUK_Client.swift in Sources */,
+				E8F8D43F29461FC20084D44D /* AppDelegate.swift in Sources */,
+				E8F8D44029461FC20084D44D /* CUK_Client.swift in Sources */,
+				E8F8D44129461FC20084D44D /* CUK_Request.swift in Sources */,
+				E8F8D44229461FC20084D44D /* SceneDelegate.swift in Sources */,
+				E8F8D44329461FC20084D44D /* CUK_Extensions.swift in Sources */,
+				E8F8D44429461FC20084D44D /* CallbackURLKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,6 +433,62 @@
 			};
 			name = Release;
 		};
+		E8F8D44B29461FC20084D44D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KQ5UPYJA8A;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WristcamPartnerSampleCode/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.glidetalk.WristcamPartnerSampleCode;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E8F8D44C29461FC20084D44D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KQ5UPYJA8A;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WristcamPartnerSampleCode/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.glidetalk.WristcamPartnerSampleCode;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -380,11 +501,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E89B9CF8293E118400AF42C8 /* Build configuration list for PBXNativeTarget "WristcamPartnerSampleCode" */ = {
+		E89B9CF8293E118400AF42C8 /* Build configuration list for PBXNativeTarget "WCPartnerConsumer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E89B9CF9293E118400AF42C8 /* Debug */,
 				E89B9CFA293E118400AF42C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E8F8D44A29461FC20084D44D /* Build configuration list for PBXNativeTarget "WCPartnerProvider" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E8F8D44B29461FC20084D44D /* Debug */,
+				E8F8D44C29461FC20084D44D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
