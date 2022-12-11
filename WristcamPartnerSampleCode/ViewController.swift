@@ -15,6 +15,16 @@ class ViewController: UIViewController {
     @IBOutlet var invokeWristcamButton : UIButton!
     @IBOutlet var resultTextLabel : UILabel!
     
+    #if PARTNER_PROVIDER_MODE
+        let isInPartnerConsumerMode = false
+    #else
+    #if PARTNER_CONSUMER_MODE
+        let isInPartnerConsumerMode = true
+    #else
+    #error ("One of the following custom swift flags must be defined PARTNER_PROVIDER_MODE, PARTNER_CONSUMER_MODE")
+    #endif
+    #endif
+    
     let thePartnerId = "8c878360-e040-4def-99cc-f9eef9e0a4e8"
     let theSecretKey = "71bf2cd8-e826-45d1-9f6b-5c3701645410"
     let thePartnerName = "Test Partner"
@@ -33,6 +43,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tokenTextField.text = "ABCD_TheToken_1234"
+        self.resultTextLabel.text = "isInPartnerConsumerMode = \(isInPartnerConsumerMode)"
         // Do any additional setup after loading the view.
     }
     
