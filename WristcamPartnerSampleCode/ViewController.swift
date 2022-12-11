@@ -15,20 +15,20 @@ class ViewController: UIViewController {
     @IBOutlet var invokeWristcamButton : UIButton!
     @IBOutlet var resultTextLabel : UILabel!
     
-    #if PARTNER_PROVIDER_MODE
-        let isInPartnerConsumerMode = false
-    #else
-    #if PARTNER_CONSUMER_MODE
-        let isInPartnerConsumerMode = true
-    #else
-    #error ("One of the following custom swift flags must be defined PARTNER_PROVIDER_MODE, PARTNER_CONSUMER_MODE")
-    #endif
-    #endif
+#if PARTNER_PROVIDER_MODE
+    let isInPartnerConsumerMode = false
+#else
+#if PARTNER_CONSUMER_MODE
+    let isInPartnerConsumerMode = true
+#else
+#error ("One of the following custom swift flags must be defined PARTNER_PROVIDER_MODE, PARTNER_CONSUMER_MODE")
+#endif
+#endif
     
     let thePartnerId = "8c878360-e040-4def-99cc-f9eef9e0a4e8"
     let theSecretKey = "71bf2cd8-e826-45d1-9f6b-5c3701645410"
     let thePartnerName = "Test Partner"
-    var thePartnerKey : String?
+    let thePartnerKey = "38bfedca-7997-45d1-96ae-af505650c75e"
     var theProviderUserToken : String?
     var theConsumerUserToken : String?
     
@@ -131,60 +131,6 @@ class ViewController: UIViewController {
         task.resume()
     }
     
-    func postPartnerRegistrationRequest(partnerId: String,
-                                        secretKey: String,
-                                        profileName: String,
-                                        profileEmail: String,
-                                        profilePhone: String,
-                                        completion: @escaping ([String: Any]?, Error?) -> Void) {
-        
-        //Prepare the post body
-        let profileDict : [String : Any] = ["name" : profileName, "email" : profileEmail, "phone" : profilePhone]
-        let parametersDict : [String : Any] = ["partnerId": partnerId, "secretKey": secretKey, "profile" : profileDict]
-        
-        //create the url with NSURL
-        //
-        //https://wcqa-env.gldapis.com/partner/userRegistration
-        let url = URL(string: "https://wcqa-env.gldapis.com/partner/registration")!
-        
-        sendRequest(url, parametersDict, completion)
-    }
-    
-    @IBAction func submitPartnerRegistration(_ sender: AnyObject!) {
-        //call postRequest with username and password parameters
-        postPartnerRegistrationRequest(partnerId: thePartnerId,
-                                       secretKey: theSecretKey,
-                                       profileName: thePartnerName,
-                                       profileEmail: "contact@partner.com",
-                                       profilePhone: "+972527777777") { (result, error) in
-            if let result = result {
-                if let success = result["success"] as? [String: Any] {
-                    if let thePartnerKey = success["partnerKey"] as? String {
-                        self.thePartnerKey = thePartnerKey
-                        DispatchQueue.main.async {
-                            self.resultTextLabel.text = "partnerKey = \"\(thePartnerKey)\""
-                            self.sumbitUserProviderRegistration()
-                        }
-                    } else {
-                        DispatchQueue.main.async {
-                            self.resultTextLabel.text = "ERROR: No \"partnerKey\" in response"
-                        }
-                    }
-                } else {
-                    DispatchQueue.main.async {
-                        self.resultTextLabel.text = "ERROR: No \"success\" in response"
-                    }
-                }
-            } else if let error = error {
-                let errorString = "ERROR: \(error.localizedDescription)"
-                print(errorString)
-                DispatchQueue.main.async {
-                    self.resultTextLabel.text = errorString
-                }
-            }
-        }
-    }
-    
     func postPartnerServiceProviderUserRegistrationRequest(partnerId: String,
                                                            partnerKey: String,
                                                            partnerUserId: String,
@@ -206,45 +152,49 @@ class ViewController: UIViewController {
         sendRequest(url, parametersDict, completion)
     }
     
-    func sumbitUserProviderRegistration() {
-        if let thePartnerKey = self.thePartnerKey {
-            postPartnerServiceProviderUserRegistrationRequest(partnerId: thePartnerId,
-                                                              partnerKey: thePartnerKey,
-                                                              partnerUserId: serviceProviderUserID,
-                                                              partnerUserName: serviceProviderUserName,
-                                                              partnerUserAvatarUrl: serviceProviderUserAvatarUrl) { (result, error) in
-                if let result = result {
-                    if let success = result["success"] as? [String: Any] {
-                        if let theProviderUserToken = success["token"] as? String {
-                            self.theProviderUserToken = theProviderUserToken
-                            DispatchQueue.main.async {
-                                self.resultTextLabel.text = "Provider token = \"\(theProviderUserToken)\""
-                                self.sumbitConsumerUserRegistration()
-                            }
-                        } else {
-                            DispatchQueue.main.async {
-                                self.resultTextLabel.text = "ERROR: No \"token\" in response"
-                            }
+    @IBAction func submitUserRegistration(_ sender: AnyObject!) {
+        if isInPartnerConsumerMode == true {
+            self.submitConsumerUserRegistration()
+        } else {
+            self.submitUserProviderRegistration()
+        }
+    }
+        
+    func submitUserProviderRegistration() {
+        
+        postPartnerServiceProviderUserRegistrationRequest(partnerId: thePartnerId,
+                                                          partnerKey: self.thePartnerKey,
+                                                          partnerUserId: serviceProviderUserID,
+                                                          partnerUserName: serviceProviderUserName,
+                                                          partnerUserAvatarUrl: serviceProviderUserAvatarUrl) { (result, error) in
+            if let result = result {
+                if let success = result["success"] as? [String: Any] {
+                    if let theProviderUserToken = success["token"] as? String {
+                        self.theProviderUserToken = theProviderUserToken
+                        DispatchQueue.main.async {
+                            self.resultTextLabel.text = "Provider token = \"\(theProviderUserToken)\""
+                            self.tokenTextField.text = theProviderUserToken
                         }
                     } else {
                         DispatchQueue.main.async {
-                            self.resultTextLabel.text = "ERROR: No \"success\" in response"
+                            self.resultTextLabel.text = "ERROR: No \"token\" in response"
                         }
                     }
-                } else if let error = error {
-                    let errorString = "ERROR: \(error.localizedDescription)"
-                    print(errorString)
+                } else {
                     DispatchQueue.main.async {
-                        self.resultTextLabel.text = errorString
+                        self.resultTextLabel.text = "ERROR: No \"success\" in response"
                     }
                 }
-            }
-        } else {
-            DispatchQueue.main.async {
-                self.resultTextLabel.text = "ERROR: We do not have a \"partnerKey\""
+            } else if let error = error {
+                let errorString = "ERROR: \(error.localizedDescription)"
+                print(errorString)
+                DispatchQueue.main.async {
+                    self.resultTextLabel.text = errorString
+                }
             }
         }
     }
+    
     
     func postPartnerServiceConsumerUserRegistrationRequest(partnerId: String,
                                                            partnerKey: String,
@@ -285,46 +235,42 @@ class ViewController: UIViewController {
         sendRequest(url, parametersDict, completion)
     }
     
-    func sumbitConsumerUserRegistration() {
-        if let thePartnerKey = self.thePartnerKey {
-            postPartnerServiceConsumerUserRegistrationRequest(partnerId: thePartnerId,
-                                                              partnerKey: thePartnerKey,
-                                                              partnerUserId: serviceConsumerUserID,
-                                                              partnerUserName: serviceConsumerUserName,
-                                                              partnerUserAvatarUrl: serviceConsumerUserAvatarUrl,
-                                                              complicationCallPartnerContactId: serviceProviderUserID,
-                                                              complicationMessagePartnerContactId: serviceProviderUserID) { (result, error) in
-                if let result = result {
-                    if let success = result["success"] as? [String: Any] {
-                        if let theConsumerUserToken = success["token"] as? String {
-                            self.theConsumerUserToken = theConsumerUserToken
-                            DispatchQueue.main.async {
-                                self.resultTextLabel.text = "Consumer token = \"\(theConsumerUserToken)\""
-                                self.tokenTextField.text = theConsumerUserToken
-                            }
-                        } else {
-                            DispatchQueue.main.async {
-                                self.resultTextLabel.text = "ERROR: No \"token\" in response"
-                            }
+    func submitConsumerUserRegistration() {
+        
+        postPartnerServiceConsumerUserRegistrationRequest(partnerId: thePartnerId,
+                                                          partnerKey: thePartnerKey,
+                                                          partnerUserId: serviceConsumerUserID,
+                                                          partnerUserName: serviceConsumerUserName,
+                                                          partnerUserAvatarUrl: serviceConsumerUserAvatarUrl,
+                                                          complicationCallPartnerContactId: serviceProviderUserID,
+                                                          complicationMessagePartnerContactId: serviceProviderUserID) { (result, error) in
+            if let result = result {
+                if let success = result["success"] as? [String: Any] {
+                    if let theConsumerUserToken = success["token"] as? String {
+                        self.theConsumerUserToken = theConsumerUserToken
+                        DispatchQueue.main.async {
+                            self.resultTextLabel.text = "Consumer token = \"\(theConsumerUserToken)\""
+                            self.tokenTextField.text = theConsumerUserToken
                         }
                     } else {
                         DispatchQueue.main.async {
-                            self.resultTextLabel.text = "ERROR: No \"success\" in response"
+                            self.resultTextLabel.text = "ERROR: No \"token\" in response"
                         }
                     }
-                } else if let error = error {
-                    let errorString = "ERROR: \(error.localizedDescription)"
-                    print(errorString)
+                } else {
                     DispatchQueue.main.async {
-                        self.resultTextLabel.text = errorString
+                        self.resultTextLabel.text = "ERROR: No \"success\" in response"
                     }
                 }
-            }
-        } else {
-            DispatchQueue.main.async {
-                self.resultTextLabel.text = "ERROR: We do not have a \"partnerKey\""
+            } else if let error = error {
+                let errorString = "ERROR: \(error.localizedDescription)"
+                print(errorString)
+                DispatchQueue.main.async {
+                    self.resultTextLabel.text = errorString
+                }
             }
         }
+        
     }
     
 }
