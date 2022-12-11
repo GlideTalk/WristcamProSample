@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WristcamPartnerSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="TOKEN" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7aj-YJ-AIx">
+                                <rect key="frame" x="16" y="134" width="361" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p3k-1D-ixc">
+                                <rect key="frame" x="57" y="176" width="281" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Register token with Wristcam App"/>
+                                <connections>
+                                    <action selector="openWristcam:" destination="BYZ-38-t0r" eventType="touchUpInside" id="n4D-A1-TnX"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter a token and tap the button above" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEU-aI-KTA">
+                                <rect key="frame" x="60" y="219" width="295.66666666666669" height="20.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6pg-re-tQ6">
+                                <rect key="frame" x="41" y="59" width="311" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Register partner with Wristcam server"/>
+                                <connections>
+                                    <action selector="submitPartnerRegistration:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w9i-vT-jkT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="7aj-YJ-AIx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="20f-NC-o83"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xEU-aI-KTA" secondAttribute="trailing" constant="37.333333333333314" id="2GX-Jg-E4o"/>
+                            <constraint firstItem="6pg-re-tQ6" firstAttribute="centerX" secondItem="7aj-YJ-AIx" secondAttribute="centerX" id="Aco-k3-u6d"/>
+                            <constraint firstItem="6pg-re-tQ6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="BcV-gL-t5K"/>
+                            <constraint firstItem="xEU-aI-KTA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="FQy-Fj-Acf"/>
+                            <constraint firstItem="7aj-YJ-AIx" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="NNP-CH-9Zt"/>
+                            <constraint firstItem="p3k-1D-ixc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="PKm-tm-kvo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="p3k-1D-ixc" secondAttribute="trailing" constant="55" id="Z8E-Ai-aSU"/>
+                            <constraint firstItem="xEU-aI-KTA" firstAttribute="top" secondItem="p3k-1D-ixc" secondAttribute="bottom" constant="8" symbolic="YES" id="Zck-JH-Oy6"/>
+                            <constraint firstItem="p3k-1D-ixc" firstAttribute="top" secondItem="7aj-YJ-AIx" secondAttribute="bottom" constant="8" symbolic="YES" id="dId-4r-Lsk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7aj-YJ-AIx" secondAttribute="trailing" id="eeS-NC-qOn"/>
+                            <constraint firstItem="7aj-YJ-AIx" firstAttribute="top" secondItem="6pg-re-tQ6" secondAttribute="bottom" constant="40" id="yVp-Q7-uGz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="invokeWristcamButton" destination="p3k-1D-ixc" id="oK7-kK-Csx"/>
+                        <outlet property="registerPartnerButton" destination="6pg-re-tQ6" id="5TU-e1-2fz"/>
+                        <outlet property="resultTextLabel" destination="xEU-aI-KTA" id="inU-AE-Qta"/>
+                        <outlet property="tokenTextField" destination="7aj-YJ-AIx" id="jOx-Fu-TDM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="130.53435114503816" y="-27.464788732394368"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
