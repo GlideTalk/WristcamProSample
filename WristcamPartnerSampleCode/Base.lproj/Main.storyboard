@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WristcamPartnerSample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WCPartnerConsumer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -41,7 +41,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Register partner with Wristcam server"/>
                                 <connections>
-                                    <action selector="submitPartnerRegistration:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w9i-vT-jkT"/>
+                                    <action selector="submitUserRegistration:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r4e-yY-GEk"/>
                                 </connections>
                             </button>
                         </subviews>
