@@ -6,18 +6,18 @@ A POST request, called by the partner's client app to our Wristcam App Server.
 The partner is expected to call this API once for every "doctor" (call recipient) without the complicationCall/complicationMessage fields and complete the flow using the next API (partner/getFeatureSet). Only after a "doctor" is registered, a "patient" can call this API and request a complication that is configured to call that "doctor" (by filling in the relevant partnerContactId fields with the "doctor"'s partnerUserId).
 
 -   Request (Body):
--   -  partnerId {String}
--   -   partnerKey {String}
--   -   userDetails {Object}
--   -   - partnerUserId {String} - the id that the partner uses to refer to this user
--   -   - [partnerUserName] {String}
--   -   - [partnerUserAvatarUrl] {String}
--   -   [complicationCall] {Object}
--   -   - partnerContactId {String} - the partner's id for this user's contact
--   -   [complicationMessage] {Object}
--   -  - partnerContactId {String} - the partner's id for this user's contact
+	-   partnerId {String}
+	-   partnerKey {String}
+	-   userDetails {Object}
+    	- partnerUserId {String} - the id that the partner uses to refer to this user
+		- [partnerUserName] {String}
+		- [partnerUserAvatarUrl] {String}
+	-	[complicationCall] {Object}
+		- partnerContactId {String} - the partner's id for this user's contact
+		-   [complicationMessage] {Object}
+			- partnerContactId {String} - the partner's id for this user's contact
 -   Response:
--   - token {String} - an identifier our server can use to access the submitted data
+	- token {String} - an identifier our server can use to access the submitted data
 
 Scheme for x-callback-url :
 ===========================
@@ -45,14 +45,14 @@ Actions and parameters
 ### setupPartnership
 
 -   Input
--   - partnerClientId
--   - PartnerId
+	- partnerClientId
+	- PartnerId
 -   Output (success)
--   - x-source=[Wristcam CFBundleDisplayName]&
--   - glideID=GlideID&
--   - [OptinalParams]=[OptionalParamsValue]&..
+	- x-source=[Wristcam CFBundleDisplayName]&
+	- glideID=GlideID&
+	- [OptinalParams]=[OptionalParamsValue]&..
 -   Output (errror)
--   - x-source=[Wristcam CFBundleDisplayName]&
--   - errorCode=[code]&
--   - errorMessage=[message]
+	- x-source=[Wristcam CFBundleDisplayName]&
+	- errorCode=[code]&
+	- errorMessage=[message]
 
