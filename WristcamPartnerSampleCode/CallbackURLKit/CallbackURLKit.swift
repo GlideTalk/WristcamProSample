@@ -62,6 +62,8 @@ public enum ErrorCode: Int {
     case missingParameter   = 2 // when handling an action, could return an error to show that parameters are missing
     case missingErrorCode   = 3
     case notSignedIn = 4
+    case internalError = 5
+    case unableToRegisterAuthToken = 6
 }
 // Implement this protocol to custom the error into Client
 public protocol FailureCallbackError: Error {
