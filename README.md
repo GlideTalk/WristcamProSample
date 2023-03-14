@@ -14,8 +14,8 @@ The partner is expected to call this API once for every "doctor" (call recipient
 		- [partnerUserAvatarUrl] {String}
 	-	[complicationCall] {Object}
 		- partnerContactId {String} - the partner's id for this user's contact
-		-   [complicationMessage] {Object}
-			- partnerContactId {String} - the partner's id for this user's contact
+	-   [complicationMessage] {Object}
+		- partnerContactId {String} - the partner's id for this user's contact
 -   Response:
 	- token {String} - an identifier our server can use to access the submitted data
 
