@@ -32,18 +32,27 @@ class ViewController: UIViewController {
     var theProviderUserToken : String?
     var theConsumerUserToken : String?
     
-    let serviceProviderUserID = "11111111-1111-1111-1111-111111111001"
-    let serviceProviderUserName = "ServiceProvider001"
+    //After you have associated serviceProviderUserID with a GlideID (A signed in Wristcam user), make sure to
+    //  change it to another ID (e.g xx503) before attempting to pair a new service provider (A new "Doctor")
+    let serviceProviderUserID = "11111111-1111-1111-1111-111111111501"
+    let serviceProviderUserName = "ServiceProvider501"
     let serviceProviderUserAvatarUrl = "https://pbs.twimg.com/profile_images/1453758246515265536/0bXKe8pY_400x400.jpg"
     
-    let serviceConsumerUserID = "11111111-1111-1111-1111-111111111002"
-    let serviceConsumerUserName = "ServiceConsumer002"
+    
+    //After you have associated serviceConsumerUserID with a GlideID (A signed in Wristcam user), make sure to
+    //  change it to another ID (e.g xx504) before attempting to pair another service consumer (A new "Patient")
+    let serviceConsumerUserID = "11111111-1111-1111-1111-111111111502"
+    let serviceConsumerUserName = "ServiceConsumer502"
     let serviceConsumerUserAvatarUrl = "https://pbs.twimg.com/profile_images/1594037780656492544/kxkIwj9e_400x400.jpg"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tokenTextField.text = "ABCD_TheToken_1234"
-        self.resultTextLabel.text = "isInPartnerConsumerMode = \(isInPartnerConsumerMode)"
+        self.tokenTextField.text = "ABCD_TheToken_1234" //Just a placeholder text
+        if isInPartnerConsumerMode {
+            self.resultTextLabel.text = "Service consumer (\"Patient\")"
+        } else {
+            self.resultTextLabel.text = "Service provider (\"Doctor\")"
+        }
         // Do any additional setup after loading the view.
     }
     
